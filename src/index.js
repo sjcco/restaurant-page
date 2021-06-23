@@ -1,3 +1,2 @@
-import "bootstrap";
-import "./main.scss"; 
-alert('hello');
+import 'bootstrap';
+import './main.scss';
