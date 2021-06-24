@@ -4,6 +4,9 @@ module.exports = {
   mode: 'development',
   devtool: false,
   entry: './src/index.js',
+  devServer: {
+    contentBase: './dist',
+  },
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
@@ -22,7 +25,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpg|jpg|gif)$/,
+        test: /\.(png|jpg|jpeg|gif)$/,
         use: [
           {
             loader: 'file-loader',

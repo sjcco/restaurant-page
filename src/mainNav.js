@@ -46,6 +46,15 @@ const mainNav = () => {
   const navlinks = document.createElement('div');
   navlinks.classList.add('col-7', 'row', 'justify-content-center');
 
+  const navlink1 = document.createElement('div');
+  navlink1.classList.add('col-auto');
+
+  const navlink1Anchor = document.createElement('a');
+  navlink1Anchor.classList.add(...linksClass);
+  navlink1Anchor.setAttribute('role', 'button');
+  navlink1Anchor.setAttribute('id', 'home');
+  navlink1Anchor.textContent = 'HOME';
+
   const dropdownCont = document.createElement('div');
   dropdownCont.classList.add('col-auto', 'dropdown');
 
@@ -60,20 +69,13 @@ const mainNav = () => {
   const dropdownMenu = createDropdown(['Mexico', 'Australia', 'Germany']);
   dropdownMenu.setAttribute('aria-labelledby', 'navDropdown');
 
-  const navlink2 = document.createElement('div');
-  navlink2.classList.add('col-auto');
-
-  const navlink2Anchor = document.createElement('a');
-  navlink2Anchor.classList.add(...linksClass);
-  navlink2Anchor.setAttribute('role', 'button');
-  navlink2Anchor.textContent = 'EVENTS';
-
   const navlink3 = document.createElement('div');
   navlink3.classList.add('col-auto');
 
   const navlink3Anchor = document.createElement('a');
   navlink3Anchor.classList.add(...linksClass);
   navlink3Anchor.setAttribute('role', 'button');
+  navlink3Anchor.setAttribute('id', 'contact');
   navlink3Anchor.textContent = 'CONTACT';
 
   const btnContainer = document.createElement('div');
@@ -81,6 +83,7 @@ const mainNav = () => {
 
   const btn = document.createElement('button');
   btn.classList.add('btn', 'btn-outline-light', 'border-3', 'rounded-pill');
+  btn.setAttribute('id', 'menu');
   btn.textContent = 'Online menu';
 
   nav.appendChild(navCont);
@@ -88,11 +91,11 @@ const mainNav = () => {
   brandContainer.appendChild(brand);
   brand.appendChild(brandLogo);
   navCont.appendChild(navlinks);
+  navlinks.appendChild(navlink1);
+  navlink1.appendChild(navlink1Anchor);
   navlinks.appendChild(dropdownCont);
   dropdownCont.appendChild(dropdownLink);
   dropdownCont.appendChild(dropdownMenu);
-  navlinks.appendChild(navlink2);
-  navlink2.appendChild(navlink2Anchor);
   navlinks.appendChild(navlink3);
   navlink3.appendChild(navlink3Anchor);
   navCont.appendChild(btnContainer);
