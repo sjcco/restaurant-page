@@ -14,6 +14,26 @@ module.exports = {
         test: /\.scss$/i,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.(svg|eot|woff|woff2|ttf)$/,
+        loader: 'file-loader',
+        options: {
+          outputPath: 'fonts',
+        },
+      },
+      {
+        test: /\.(png|jpg|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'img/',
+              publicPath: 'img/',
+            },
+          },
+        ],
+      },
     ],
   },
 };
