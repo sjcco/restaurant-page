@@ -69,14 +69,6 @@ const mainNav = () => {
   const dropdownMenu = createDropdown(['Mexico', 'Australia', 'Germany']);
   dropdownMenu.setAttribute('aria-labelledby', 'navDropdown');
 
-  const navlink2 = document.createElement('div');
-  navlink2.classList.add('col-auto');
-
-  const navlink2Anchor = document.createElement('a');
-  navlink2Anchor.classList.add(...linksClass);
-  navlink2Anchor.setAttribute('role', 'button');
-  navlink2Anchor.textContent = 'EVENTS';
-
   const navlink3 = document.createElement('div');
   navlink3.classList.add('col-auto');
 
@@ -104,8 +96,6 @@ const mainNav = () => {
   navlinks.appendChild(dropdownCont);
   dropdownCont.appendChild(dropdownLink);
   dropdownCont.appendChild(dropdownMenu);
-  navlinks.appendChild(navlink2);
-  navlink2.appendChild(navlink2Anchor);
   navlinks.appendChild(navlink3);
   navlink3.appendChild(navlink3Anchor);
   navCont.appendChild(btnContainer);
