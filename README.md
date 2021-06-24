@@ -16,7 +16,7 @@ This project dinamically renders a page when you click on the nav links.
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://sjcco.github.io/restaurant-page/)
 
 
 ## Getting Started
