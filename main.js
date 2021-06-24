@@ -13024,6 +13024,21 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/img/contactUs.jpg":
+/*!*******************************!*\
+  !*** ./src/img/contactUs.jpg ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("img/contactUs.jpg");
+
+/***/ }),
+
 /***/ "./src/img/food1.jpg":
 /*!***************************!*\
   !*** ./src/img/food1.jpg ***!
@@ -13390,6 +13405,132 @@ module.exports = function (list, options) {
     lastIdentifiers = newLastIdentifiers;
   };
 };
+
+/***/ }),
+
+/***/ "./src/contact.js":
+/*!************************!*\
+  !*** ./src/contact.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _img_contactUs_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./img/contactUs.jpg */ "./src/img/contactUs.jpg");
+
+
+const h3 = ['LOCATION', 'E-MAIL', 'PHONE'];
+const p = ['742 Evergreen Terrace', 'chef@mail.com', '555-555-5555'];
+
+function addElements(elem, h3arr, parr) {
+  let h3;
+  let p;
+
+  for (let i = 0; i < h3arr.length; i += 1) {
+    h3 = document.createElement('h3');
+    h3.classList.add('fw-bold', 'fs-6');
+    h3.textContent = h3arr[i];
+
+    p = document.createElement('p');
+    p.classList.add('fs-6');
+    p.textContent = parr[i];
+
+    elem.appendChild(h3);
+    elem.appendChild(p);
+  }
+}
+
+function createForm(type, label) {
+  const form = document.createElement('form');
+  form.classList.add('mt-5');
+
+  let cont;
+  let input;
+  let inputLabel;
+
+  for (let i = 0; i < type.length; i += 1) {
+    cont = document.createElement('div');
+    cont.classList.add('form-floating', 'mb-3');
+
+    input = document.createElement('input');
+    input.setAttribute('type', type[i]);
+    input.classList.add('form-control');
+    input.setAttribute('id', label[i]);
+    input.setAttribute('placeholder', label[i]);
+
+    inputLabel = document.createElement('label');
+    inputLabel.setAttribute('for', label[i]);
+    inputLabel.textContent = label[i];
+
+    form.appendChild(cont);
+    cont.appendChild(input);
+    cont.appendChild(inputLabel);
+  }
+  return form;
+}
+
+const contact = () => {
+  const container = document.createElement('div');
+  container.classList.add('container', 'my-4');
+
+  const rowCont = document.createElement('div');
+  rowCont.classList.add('row', 'justify-content-center');
+
+  const contactCont = document.createElement('div');
+  contactCont.classList.add('col-5', 'd-flex', 'flex-column', 'me-2');
+
+  const contactTitle = document.createElement('h2');
+  contactTitle.classList.add('display-4', 'text-danger');
+  contactTitle.textContent = 'CONTACT US';
+
+  const contactDescription = document.createElement('p');
+  contactDescription.textContent = 'For more information about our Restaurants, do not hesitate to contact us';
+
+  const img = new Image();
+  img.src = _img_contactUs_jpg__WEBPACK_IMPORTED_MODULE_0__.default;
+  img.classList.add('img-fluid');
+
+  const formCont = document.createElement('div');
+  formCont.classList.add('col-5', 'ms-2', 'mt-4');
+
+  const form = createForm(['email', 'text', 'number'], ['email', 'name', 'phone']);
+
+  const textareaCont = document.createElement('div');
+  textareaCont.classList.add('form-floating', 'mb-3');
+
+  const textarea = document.createElement('textarea');
+  textarea.classList.add('form-control');
+  textarea.placeholder = 'Leave a comment here';
+  textarea.setAttribute('id', 'text');
+  textarea.setAttribute('style', 'height: 100px');
+
+  const textareaLabel = document.createElement('label');
+  textareaLabel.setAttribute('for', 'text');
+
+  const btn = document.createElement('button');
+  btn.classList.add('btn', 'btn-danger', 'text-white');
+  btn.textContent = 'Send';
+
+  container.appendChild(rowCont);
+  rowCont.appendChild(contactCont);
+  contactCont.appendChild(contactTitle);
+  contactCont.appendChild(contactDescription);
+  addElements(contactCont, h3, p);
+  contactCont.appendChild(img);
+  rowCont.appendChild(formCont);
+  formCont.appendChild(form);
+  form.appendChild(textareaCont);
+  textareaCont.appendChild(textarea);
+  textareaCont.appendChild(textareaLabel);
+  form.appendChild(btn);
+
+  return container;
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (contact);
 
 /***/ }),
 
@@ -13867,7 +14008,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mainNav__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mainNav */ "./src/mainNav.js");
 /* harmony import */ var _footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./footer */ "./src/footer.js");
 /* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./home */ "./src/home.js");
-/* harmony import */ var _img_logo_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./img/logo.png */ "./src/img/logo.png");
+/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./contact */ "./src/contact.js");
+/* harmony import */ var _img_logo_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./img/logo.png */ "./src/img/logo.png");
+
+
 
 
 
@@ -13884,14 +14028,15 @@ const page = document.createElement('div');
 page.classList.add('page-content');
 const foot = (0,_footer__WEBPACK_IMPORTED_MODULE_5__.default)();
 const myhome = (0,_home__WEBPACK_IMPORTED_MODULE_6__.default)();
+const mycontact = (0,_contact__WEBPACK_IMPORTED_MODULE_7__.default)();
 
 const mylogo = new Image();
-mylogo.src = _img_logo_png__WEBPACK_IMPORTED_MODULE_7__.default;
+mylogo.src = _img_logo_png__WEBPACK_IMPORTED_MODULE_8__.default;
 
 content.appendChild(nav);
 content.appendChild(mainNavigation);
 content.appendChild(page);
-page.appendChild(myhome);
+page.appendChild(mycontact);
 content.appendChild(foot);
 
 })();
