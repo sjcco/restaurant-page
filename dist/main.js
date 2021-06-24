@@ -13099,6 +13099,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/img/menu1.jpeg":
+/*!****************************!*\
+  !*** ./src/img/menu1.jpeg ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("img/menu1.jpeg");
+
+/***/ }),
+
+/***/ "./src/img/menu2.jpeg":
+/*!****************************!*\
+  !*** ./src/img/menu2.jpeg ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("img/menu2.jpeg");
+
+/***/ }),
+
 /***/ "./src/main.scss":
 /*!***********************!*\
   !*** ./src/main.scss ***!
@@ -13527,10 +13557,47 @@ const contact = () => {
   textareaCont.appendChild(textareaLabel);
   form.appendChild(btn);
 
-  return container;
+  const page = document.querySelector('#page-content');
+
+  page.appendChild(container);
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (contact);
+
+/***/ }),
+
+/***/ "./src/drawPage.js":
+/*!*************************!*\
+  !*** ./src/drawPage.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _topNav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./topNav */ "./src/topNav.js");
+/* harmony import */ var _mainNav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mainNav */ "./src/mainNav.js");
+/* harmony import */ var _footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./footer */ "./src/footer.js");
+
+
+
+
+const content = document.querySelector('#content');
+
+const drawPage = () => {
+  const page = document.createElement('div');
+  page.setAttribute('id', 'page-content');
+
+  content.appendChild((0,_topNav__WEBPACK_IMPORTED_MODULE_0__.default)());
+  content.appendChild((0,_mainNav__WEBPACK_IMPORTED_MODULE_1__.default)());
+  content.appendChild(page);
+  content.appendChild((0,_footer__WEBPACK_IMPORTED_MODULE_2__.default)());
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (drawPage);
+
 
 /***/ }),
 
@@ -13642,7 +13709,9 @@ const home = () => {
   rowCont.appendChild(text1);
   rowCont.appendChild(text2);
 
-  return container;
+  const page = document.querySelector('#page-content');
+
+  page.appendChild(container);
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (home);
@@ -13709,6 +13778,15 @@ const mainNav = () => {
   const navlinks = document.createElement('div');
   navlinks.classList.add('col-7', 'row', 'justify-content-center');
 
+  const navlink1 = document.createElement('div');
+  navlink1.classList.add('col-auto');
+
+  const navlink1Anchor = document.createElement('a');
+  navlink1Anchor.classList.add(...linksClass);
+  navlink1Anchor.setAttribute('role', 'button');
+  navlink1Anchor.setAttribute('id', 'home');
+  navlink1Anchor.textContent = 'HOME';
+
   const dropdownCont = document.createElement('div');
   dropdownCont.classList.add('col-auto', 'dropdown');
 
@@ -13737,6 +13815,7 @@ const mainNav = () => {
   const navlink3Anchor = document.createElement('a');
   navlink3Anchor.classList.add(...linksClass);
   navlink3Anchor.setAttribute('role', 'button');
+  navlink3Anchor.setAttribute('id', 'contact');
   navlink3Anchor.textContent = 'CONTACT';
 
   const btnContainer = document.createElement('div');
@@ -13744,6 +13823,7 @@ const mainNav = () => {
 
   const btn = document.createElement('button');
   btn.classList.add('btn', 'btn-outline-light', 'border-3', 'rounded-pill');
+  btn.setAttribute('id', 'menu');
   btn.textContent = 'Online menu';
 
   nav.appendChild(navCont);
@@ -13751,6 +13831,8 @@ const mainNav = () => {
   brandContainer.appendChild(brand);
   brand.appendChild(brandLogo);
   navCont.appendChild(navlinks);
+  navlinks.appendChild(navlink1);
+  navlink1.appendChild(navlink1Anchor);
   navlinks.appendChild(dropdownCont);
   dropdownCont.appendChild(dropdownLink);
   dropdownCont.appendChild(dropdownMenu);
@@ -13765,6 +13847,91 @@ const mainNav = () => {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (mainNav);
+
+/***/ }),
+
+/***/ "./src/menu.js":
+/*!*********************!*\
+  !*** ./src/menu.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _img_menu1_jpeg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./img/menu1.jpeg */ "./src/img/menu1.jpeg");
+/* harmony import */ var _img_menu2_jpeg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./img/menu2.jpeg */ "./src/img/menu2.jpeg");
+
+
+
+function createCarousel(arr) {
+  const container = document.createElement('div');
+
+  let carouselItem;
+  let img;
+
+  for (let i = 0; i < arr.length; i += 1) {
+    carouselItem = document.createElement('div');
+    carouselItem.classList.add('carousel-item');
+    if (i === 0) {
+      carouselItem.classList.add('active');
+    }
+
+    img = new Image();
+    img.src = arr[i];
+    img.classList.add('d-block', 'w-100');
+    img.setAttribute('alt', '...');
+
+    carouselItem.appendChild(img);
+    container.appendChild(carouselItem);
+  }
+  return container;
+}
+
+const menu = () => {
+  const container = document.createElement('div');
+  container.classList.add('d-flex', 'justify-content-center');
+
+  const carouselCont = document.createElement('div');
+  carouselCont.classList.add('carousel', 'slide', 'col-7');
+  carouselCont.setAttribute('data-bs-ride', 'carousel');
+
+  const carousel = createCarousel([_img_menu1_jpeg__WEBPACK_IMPORTED_MODULE_0__.default, _img_menu2_jpeg__WEBPACK_IMPORTED_MODULE_1__.default]);
+  carousel.classList.add('carousel-inner');
+
+  container.appendChild(carouselCont);
+  carouselCont.appendChild(carousel);
+
+  const page = document.querySelector('#page-content');
+
+  page.appendChild(container);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (menu);
+
+/***/ }),
+
+/***/ "./src/reset.js":
+/*!**********************!*\
+  !*** ./src/reset.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const reset = () => {
+  const page = document.querySelector('#page-content');
+  while (page.firstChild) {
+    page.removeChild(page.lastChild);
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (reset);
 
 /***/ }),
 
@@ -14004,12 +14171,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_fontawesome_free_js_all__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/all */ "./node_modules/@fortawesome/fontawesome-free/js/all.js");
 /* harmony import */ var _fortawesome_fontawesome_free_js_all__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_all__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _main_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main.scss */ "./src/main.scss");
-/* harmony import */ var _topNav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./topNav */ "./src/topNav.js");
-/* harmony import */ var _mainNav__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mainNav */ "./src/mainNav.js");
-/* harmony import */ var _footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./footer */ "./src/footer.js");
-/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./home */ "./src/home.js");
-/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./contact */ "./src/contact.js");
-/* harmony import */ var _img_logo_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./img/logo.png */ "./src/img/logo.png");
+/* harmony import */ var _drawPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./drawPage */ "./src/drawPage.js");
+/* harmony import */ var _reset__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./reset */ "./src/reset.js");
+/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./home */ "./src/home.js");
+/* harmony import */ var _contact__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./contact */ "./src/contact.js");
+/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./menu */ "./src/menu.js");
 
 
 
@@ -14019,25 +14185,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+(0,_drawPage__WEBPACK_IMPORTED_MODULE_3__.default)();
+(0,_home__WEBPACK_IMPORTED_MODULE_5__.default)();
 
+const homelink = document.querySelector('#home');
+homelink.onclick = () => {
+  (0,_reset__WEBPACK_IMPORTED_MODULE_4__.default)();
+  (0,_home__WEBPACK_IMPORTED_MODULE_5__.default)();
+};
 
-const content = document.querySelector('#content');
-const nav = (0,_topNav__WEBPACK_IMPORTED_MODULE_3__.default)();
-const mainNavigation = (0,_mainNav__WEBPACK_IMPORTED_MODULE_4__.default)();
-const page = document.createElement('div');
-page.classList.add('page-content');
-const foot = (0,_footer__WEBPACK_IMPORTED_MODULE_5__.default)();
-const myhome = (0,_home__WEBPACK_IMPORTED_MODULE_6__.default)();
-const mycontact = (0,_contact__WEBPACK_IMPORTED_MODULE_7__.default)();
+const contactlink = document.querySelector('#contact');
+contactlink.onclick = () => {
+  (0,_reset__WEBPACK_IMPORTED_MODULE_4__.default)();
+  (0,_contact__WEBPACK_IMPORTED_MODULE_6__.default)();
+};
 
-const mylogo = new Image();
-mylogo.src = _img_logo_png__WEBPACK_IMPORTED_MODULE_8__.default;
-
-content.appendChild(nav);
-content.appendChild(mainNavigation);
-content.appendChild(page);
-page.appendChild(mycontact);
-content.appendChild(foot);
+const menulink = document.querySelector('#menu');
+menulink.onclick = () => {
+  (0,_reset__WEBPACK_IMPORTED_MODULE_4__.default)();
+  (0,_menu__WEBPACK_IMPORTED_MODULE_7__.default)();
+};
 
 })();
 
