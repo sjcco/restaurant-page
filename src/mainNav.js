@@ -7,7 +7,7 @@ function createDropdown(arr) {
   let itemLink;
   let itemAnchor;
 
-  for(let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i += 1) {
     itemLink = document.createElement('li');
     container.appendChild(itemLink);
 
@@ -17,8 +17,6 @@ function createDropdown(arr) {
     itemLink.appendChild(itemAnchor);
     itemAnchor.textContent = arr[i];
   }
-  console.log('thingy');
-  console.log(container);
   return container;
 }
 
@@ -99,7 +97,7 @@ const mainNav = () => {
   navlink3.appendChild(navlink3Anchor);
   navCont.appendChild(btnContainer);
   btnContainer.appendChild(btn);
-  
+
   return nav;
 };
 
