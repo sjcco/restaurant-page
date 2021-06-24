@@ -105,7 +105,9 @@ const contact = () => {
   textareaCont.appendChild(textareaLabel);
   form.appendChild(btn);
 
-  return container;
+  const page = document.querySelector('#page-content');
+
+  page.appendChild(container);
 };
 
 export default contact;

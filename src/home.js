@@ -58,7 +58,9 @@ const home = () => {
   rowCont.appendChild(text1);
   rowCont.appendChild(text2);
 
-  return container;
+  const page = document.querySelector('#page-content');
+
+  page.appendChild(container);
 };
 
 export default home;
